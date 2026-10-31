@@ -1,0 +1,70 @@
+defaults:
+  datasets_root: D:/rebuild/BlockGaussian/datasets
+  output_root: D:/rebuild/OceanXL_pipeline/output
+
+  partition_mode: "3d"
+  vertical_axis: "z"
+  max_tree_depth: 6
+  num_points_thresh: 400000
+  cover_ratio_thresh: 0.3
+  expand_ratio: 0.05
+  scene_scale: 1.0
+
+  data_device: cuda
+  sh_degree: 3
+  iterations: 40000
+  densify_from_iter: 1000
+  densify_until_iter: 20000
+  densification_interval: 100
+  densify_grad_threshold: 0.0002
+  opacity_reset_interval: 3000
+  prune_start_iter: 20000
+  prune_stop_iter: 30000
+  pruning_interval: 500
+  pruning_interval_maximum: 1500
+  prune_keep_ratio: 0.5
+  dog_grad_threshold: 0.0002
+  dog_select_interval: 1000
+  dog_select_freeze: 3000
+  ucd: true
+  ucd_f_max: 4.0
+  ucd_spsa_a: 2.0
+  ucd_spsa_c: 0.25
+  freq_loss_weight: 0.0
+
+scenes:
+  2016:
+    train_dir: 2016/train
+    val_dir: 2016/val
+    partition_mode: "3d"
+    num_points_thresh: 120000
+    cover_ratio_thresh: 0.4
+
+  cr:
+    train_dir: cr/train
+    val_dir: cr/val
+    partition_mode: "2d"
+    num_points_thresh: 300000
+    cover_ratio_thresh: 0.4
+    data_device: cpu
+
+  GX:
+    train_dir: GX/train
+    val_dir: GX/val
+    partition_mode: "2d"
+    num_points_thresh: 100000
+    cover_ratio_thresh: 0.1
+
+  ISRO:
+    train_dir: ISRO/undistorted/train
+    val_dir: ISRO/undistorted/val
+    partition_mode: "2d"
+    num_points_thresh: 400000
+    cover_ratio_thresh: 0.3
+
+  KWAJ:
+    train_dir: KWAJ/train
+    val_dir: KWAJ/val
+    partition_mode: "3d"
+    num_points_thresh: 400000
+    cover_ratio_thresh: 0.3
